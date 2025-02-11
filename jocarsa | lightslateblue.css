@@ -1,0 +1,299 @@
+/* ============================
+   Jocarsa Editor - Extended CSS
+   ============================ */
+
+/* Main Container */
+.jocarsa-container {
+  border: 2px solid #4c6ef5;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #f8f9fa;
+  max-width: 800px;
+  margin: 20px auto;
+  box-sizing: border-box;
+}
+
+/* Visual Editor */
+.jocarsa-editor {
+  min-height: 200px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  background: #fff;
+  outline: none;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  white-space: pre-wrap;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+/* Block Selector and Add Button */
+.jocarsa-block-selector {
+  margin-right: 10px;
+  padding: 5px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.jocarsa-add-block {
+  background-color: #4c6ef5;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.jocarsa-add-block:hover {
+  background-color: #3b5bdb;
+}
+
+/* Common style for all inserted blocks */
+.jocarsa-block {
+  padding: 8px;
+  margin: 8px 0;
+  border-left: 4px solid #4c6ef5;
+  background: #e9ecef;
+  position: relative;
+}
+
+/* Specific Block Styles */
+/* Text Blocks */
+.block-p,
+.block-h1,
+.block-h2,
+.block-h3,
+.block-ul,
+.block-ol,
+.block-blockquote,
+.block-pre {
+  margin: 10px 0;
+}
+
+/* Image Blocks */
+.block-img,
+.block-featured-image {
+  display: block;
+  max-width: 100%;
+  margin: 10px 0;
+}
+
+/* Gallery Block */
+.block-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin: 10px 0;
+}
+.block-gallery img.gallery-image {
+  width: calc(33.333% - 10px);
+  height: auto;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+/* Audio and Video Blocks */
+.block-audio,
+.block-video {
+  display: block;
+  margin: 10px 0;
+}
+
+/* File Link Block */
+.block-file {
+  display: inline-block;
+  margin: 10px 0;
+  color: #4c6ef5;
+  text-decoration: underline;
+}
+
+/* Button Block */
+.block-button {
+  display: inline-block;
+  padding: 8px 15px;
+  background-color: #4c6ef5;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Table Block */
+.block-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
+}
+.block-table td,
+.block-table th {
+  border: 1px solid #ccc;
+  padding: 8px;
+}
+
+/* HR (Separator) Block */
+.block-hr {
+  border: none;
+  border-top: 2px solid #ccc;
+  margin: 15px 0;
+}
+
+/* Shortcode, Custom HTML, and Widget Blocks */
+.block-shortcode,
+.block-html,
+.block-widget {
+  background: #fff;
+  border: 1px dashed #aaa;
+  padding: 10px;
+  margin: 10px 0;
+  font-family: Consolas, monospace;
+}
+
+/* Third-Party Embed Blocks */
+.block-youtube,
+.block-vimeo,
+.block-twitter,
+.block-facebook,
+.block-instagram,
+.block-maps,
+.block-gist {
+  margin: 10px 0;
+}
+
+/* Design Blocks */
+.block-group,
+.block-column,
+.block-row,
+.block-container,
+.block-grid {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+/* Theme/Template Blocks */
+.block-site-header,
+.block-publication-date,
+.block-author,
+.block-navigation {
+  padding: 10px;
+  margin: 10px 0;
+  background: #f1f3f5;
+  border: 1px solid #ddd;
+}
+
+/* ------------------------------
+   HTML Toggle Switch (Slider)
+   ------------------------------ */
+
+/* Container for the toggle switch */
+.jocarsa-html-toggle-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+/* Hide the default checkbox */
+.jocarsa-html-toggle {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+
+/* Label styled as slider */
+.jocarsa-html-toggle-label {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  background-color: #ccc;
+  border-radius: 34px;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: background-color 0.4s;
+}
+
+/* The slider (the round knob) */
+.jocarsa-html-toggle-label:before {
+  content: "";
+  position: absolute;
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  border-radius: 50%;
+  transition: transform 0.4s;
+}
+
+/* Toggle "on" state */
+.jocarsa-html-toggle:checked + .jocarsa-html-toggle-label {
+  background-color: #4c6ef5;
+}
+.jocarsa-html-toggle:checked + .jocarsa-html-toggle-label:before {
+  transform: translateX(26px);
+}
+
+/* ------------------------------
+   HTML Editor View
+   ------------------------------ */
+.jocarsa-html-editor {
+  width: 100%;
+  min-height: 200px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  font-family: Consolas, monospace;
+  font-size: 14px;
+  white-space: pre;
+  margin-top: 10px;
+  box-sizing: border-box;
+  background-color: #fff;
+  resize: vertical;
+}
+
+/* ------------------------------
+   Delete Button for Blocks
+   ------------------------------ */
+.block-delete-btn {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  background: red;
+  color: white;
+  border: none;
+  font-size: 12px;
+  padding: 2px 5px;
+  cursor: pointer;
+  display: none;
+}
+
+/* Show the delete button when hovering over a block */
+.jocarsa-block:hover .block-delete-btn {
+  display: block;
+}
+
+/* ------------------------------
+   Responsive Adjustments
+   ------------------------------ */
+@media (max-width: 600px) {
+  .jocarsa-container {
+    width: 95%;
+    margin: 10px auto;
+  }
+  .jocarsa-html-toggle-label {
+    width: 50px;
+    height: 28px;
+  }
+  .jocarsa-html-toggle-label:before {
+    height: 22px;
+    width: 22px;
+    left: 3px;
+    bottom: 3px;
+  }
+  .jocarsa-html-toggle:checked + .jocarsa-html-toggle-label:before {
+    transform: translateX(22px);
+  }
+}
+
