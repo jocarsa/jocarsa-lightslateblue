@@ -407,23 +407,33 @@ document.addEventListener("DOMContentLoaded", function () {
     newBlock.classList.add("block-" + tag);
     newBlock.classList.add("jocarsa-block"); // Add this class to each block
 
-    // Add a delete button to the block.
-    const deleteBtn = document.createElement("button");
-    deleteBtn.textContent = "×";
-    deleteBtn.classList.add("block-delete-btn");
-    deleteBtn.setAttribute("title", "Eliminar bloque");
-    deleteBtn.addEventListener("click", (e) => {
-      e.stopPropagation();
-      newBlock.remove();
-      this.updateTextarea();
-    });
-    newBlock.appendChild(deleteBtn);
-
     // Append the new block to the visual editor.
     this.editorDiv.appendChild(newBlock);
     this.updateTextarea();
+
+    // Add event listeners for mouseenter and mouseleave
+    newBlock.addEventListener("mouseenter", () => {
+      const deleteBtn = document.createElement("button");
+      deleteBtn.textContent = "×";
+      deleteBtn.classList.add("block-delete-btn");
+      deleteBtn.setAttribute("title", "Eliminar bloque");
+      deleteBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        newBlock.remove();
+        this.updateTextarea();
+      });
+      newBlock.appendChild(deleteBtn);
+    });
+
+    newBlock.addEventListener("mouseleave", () => {
+      const deleteBtn = newBlock.querySelector(".block-delete-btn");
+      if (deleteBtn) {
+        deleteBtn.remove();
+      }
+    });
   }
 }
+
 
   }
 
