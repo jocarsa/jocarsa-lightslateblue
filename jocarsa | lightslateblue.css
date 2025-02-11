@@ -296,4 +296,7 @@
     transform: translateX(22px);
   }
 }
-
+/* Show the delete button when hovering over a block */
+.jocarsa-block:hover .block-delete-btn {
+  display: block;
+}
