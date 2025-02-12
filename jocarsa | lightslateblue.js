@@ -164,7 +164,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const toggleLabel = document.createElement("label");
       toggleLabel.setAttribute("for", toggleSwitch.id);
       toggleLabel.classList.add("jocarsa-html-toggle-label");
-      toggleLabel.textContent = "Ver HTML";
+      toggleLabel.textContent = "";
 
       toggleContainer.appendChild(toggleSwitch);
       toggleContainer.appendChild(toggleLabel);
