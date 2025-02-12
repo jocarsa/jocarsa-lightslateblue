@@ -221,9 +221,61 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Media Blocks.
     case "img":
-      newBlock = document.createElement("img");
-      newBlock.src = "https://via.placeholder.com/150";
-      newBlock.alt = "Imagen de ejemplo";
+		  // Create a hidden file input element for selecting an image.
+		  const fileInput = document.createElement("input");
+		  fileInput.type = "file";
+		  fileInput.accept = "image/*";
+		  fileInput.style.display = "none";
+		  // Append it to the document (so the click event works in all browsers)
+		  document.body.appendChild(fileInput);
+
+		  // When a file is selected, convert it to base64 and insert the image.
+		  fileInput.addEventListener("change", (event) => {
+			 const file = event.target.files[0];
+			 if (file) {
+				const reader = new FileReader();
+				reader.onload = (e) => {
+				  const newImage = document.createElement("img");
+				  newImage.src = e.target.result; // The base64 data URL.
+				  newImage.alt = "Imagen seleccionada";
+				  // Add data attributes and CSS classes.
+				  newImage.setAttribute("data-block-type", tag);
+				  newImage.classList.add("block-" + tag, "jocarsa-block");
+				  // Append the new image block to the editor.
+				  this.editorDiv.appendChild(newImage);
+				  this.updateTextarea();
+
+				  // Optional: Add delete button on hover.
+				  newImage.addEventListener("mouseenter", () => {
+				    const deleteBtn = document.createElement("button");
+				    deleteBtn.textContent = "×";
+				    deleteBtn.classList.add("block-delete-btn");
+				    deleteBtn.setAttribute("title", "Eliminar bloque");
+				    deleteBtn.addEventListener("click", (e) => {
+				      e.stopPropagation();
+				      newImage.remove();
+				      this.updateTextarea();
+				    });
+				    newImage.appendChild(deleteBtn);
+				  });
+				  newImage.addEventListener("mouseleave", () => {
+				    const deleteBtn = newImage.querySelector(".block-delete-btn");
+				    if (deleteBtn) {
+				      deleteBtn.remove();
+				    }
+				  });
+				};
+				reader.readAsDataURL(file);
+			 }
+			 // Remove the file input element after selection.
+			 fileInput.remove();
+		  });
+
+		  // Trigger the file dialog.
+		  fileInput.click();
+		  // Return early so that the default image insertion isn’t executed.
+		  return;
+
       break;
     case "gallery":
       newBlock = document.createElement("div");
