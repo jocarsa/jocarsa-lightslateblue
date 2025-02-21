@@ -4,11 +4,9 @@
 
 /* Main Container */
 .jocarsa-container {
-  
   padding: 10px;
   border-radius: 5px;
   background-color: #f8f9fa;
-  
   margin: 20px auto;
   box-sizing: border-box;
 }
@@ -296,7 +294,167 @@
     transform: translateX(22px);
   }
 }
-/* Show the delete button when hovering over a block */
-.jocarsa-block:hover .block-delete-btn {
+
+/* jocarsa | snow - Enhanced WYSIWYG Styles */
+
+/* General editor container */
+.jocarsa-snow-editor-container {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  margin: 10px 0;
+  background-color: #f9f9f9; /* Snow theme background */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  height: 500px;
+}
+
+/* Toolbar styles */
+.jocarsa-snow-toolbar {
+  background-color: #ffffff; /* Snow theme for toolbar */
+  padding: 10px;
+  border-bottom: 1px solid #e0e0e0;
+  display: flex;
+  flex-wrap: wrap; /* Allows tools to wrap onto multiple rows */
+  gap: 3px;
+  align-items: center;
+}
+
+.jocarsa-snow-toolbar button {
+  background: #ffffff;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  padding: 3px 6px;
+  font-size: 0.9em;
+  font-weight: bold;
+  cursor: pointer;
+  color: #a2a2a2;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s, box-shadow 0.3s, transform 0.2s;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: stretch;
+}
+.jocarsa-snow-toolbar label{
+  width:auto;
+}
+.jocarsa-snow-toolbar button img{
+  width:16px;
+}
+.jocarsa-snow-toolbar select{
+  color: #a2a2a2;
+}
+.jocarsa-snow-toolbar select option{
+  color: #a2a2a2;
+}
+.jocarsa-snow-toolbar button:hover {
+  background-color: #f5f5f5;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+.jocarsa-snow-toolbar button:active {
+  background-color: #e0e0e0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transform: translateY(0);
+}
+
+/* Icon styles for buttons */
+.jocarsa-snow-toolbar button[data-command="bold"] {
+  font-weight: bold;
+}
+
+.jocarsa-snow-toolbar button[data-command="italic"] {
+  font-style: italic;
+}
+
+.jocarsa-snow-toolbar button[data-command="underline"] {
+  text-decoration: underline;
+}
+
+/* Editor styles */
+.jocarsa-snow-editor {
+  flex-grow: 1;
+  padding: 15px;
+  font-family: Arial, sans-serif;
+  font-size: 1em;
+  line-height: 1.6;
+  color: #333333;
+  background-color: #ffffff; /* Snow theme editor background */
+  border: none;
+  outline: none;
+  border-radius: 0 0 8px 8px;
+  overflow-y: auto;
+  height: calc(100% - 60px); /* Adjusts for toolbar height */
+}
+
+/* Dropdown and input styles */
+.jocarsa-snow-toolbar select,
+.jocarsa-snow-toolbar input[type="color"] {
+  border: 1px solid #d9d9d9;
+  padding: 6px;
+  font-size: 0.9em;
+  border-radius: 4px;
+  background-color: #ffffff;
+  color: #333333;
+  transition: box-shadow 0.2s, background-color 0.2s;
+}
+
+.jocarsa-snow-toolbar select:hover,
+.jocarsa-snow-toolbar input[type="color"]:hover {
+  background-color: #f5f5f5;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.jocarsa-snow-toolbar input[type="color"] {
+  width: 35px;
+  height: 35px;
+}
+/* --- ADDED styles for the resizable image container --- */
+.resizable-image-container {
+  display: inline-block;
+  position: relative;
+  /* Slight border or background to indicate the placeholder boundary (optional) */
+  border: 1px dashed #ccc;
+  margin: 2px;
+}
+.resizable-image-container img {
   display: block;
 }
+.resizable-image-handle {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 15px;
+  height: 15px;
+  background: #ccc;
+  cursor: se-resize;
+  border: 1px solid #999;
+}
+.jocarsa-snow-code-editor {
+  flex-grow: 1;
+  width: 100%;
+  height: 100%;
+  font-family: "Courier New", monospace;
+  font-size: 14px;
+  line-height: 1.6;
+  border: none;
+  outline: none;
+  border-radius: 0 0 8px 8px;
+  resize: none;
+  padding: 15px;
+  color: #333333;
+  background-color: #ffffff; /* same background as .jocarsa-snow-editor */
+  box-sizing: border-box;
+  overflow: auto;
+}
+.jocarsa-snow-editor ul, .jocarsa-snow-editor ol{
+  padding-left:20px;
+}
+.jocarsa-snow-editor td{
+  min-width:20px;
+}
+
