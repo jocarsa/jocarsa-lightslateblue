@@ -548,6 +548,15 @@ document.addEventListener("DOMContentLoaded", function () {
         <label><input type="color" id="textColorPicker"></label>
         <label><input type="color" id="bgColorPicker"></label>
 
+        <!-- Floating options dropdown -->
+        <label>
+          <select id="floatSelector">
+            <option value="none">None</option>
+            <option value="left">Left</option>
+            <option value="right">Right</option>
+          </select>
+        </label>
+
         <!-- Toggle button for switching to/from HTML view -->
         <button type="button" id="toggleCodeView">HTML</button>
       `;
@@ -722,6 +731,16 @@ document.addEventListener("DOMContentLoaded", function () {
       toolbar.querySelector('#blockStyleSelector').addEventListener('change', (e) => {
         document.execCommand('formatBlock', false, e.target.value);
         this.textarea.value = this.editorDiv.innerHTML;
+      });
+
+      // Floating options
+      toolbar.querySelector('#floatSelector').addEventListener('change', (e) => {
+        const selectedOption = e.target.value;
+        const selectedImage = this.editorDiv.querySelector('.resizable-image-container img');
+        if (selectedImage) {
+          selectedImage.style.float = selectedOption;
+          this.textarea.value = this.editorDiv.innerHTML;
+        }
       });
 
       // -----------------------
